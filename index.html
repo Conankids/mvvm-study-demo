@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>实现一个简易的vue</title>
+</head>
+
+<body>
+  <div id="app">
+    <h2>{{person.name}}--{{person.age}}</h2>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+    <p v-text="msg"></p>
+    <div v-html="person.like" v-bind:title="msg"></div>
+    <input type="text" v-model="person.name">
+    <button v-on:click="handleClick">点我on</button>
+    <button @click="handleClick">点我@</button>
+  </div>
+
+  <!-- <script src="./vue.js"></script> -->
+  <script src="./myVue.js"></script>
+  <script src="./observer.js"></script>
+  <script>
+    const app = new MVue({
+      el: '#app',
+      data: {
+        person: {
+          name: 'jmc111',
+          age: 28,
+          like: '<h4>play lol</h4>'
+        },
+        msg: 'hello Vue'
+      },
+      methods: {
+        handleClick() {
+          console.log(this);
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
