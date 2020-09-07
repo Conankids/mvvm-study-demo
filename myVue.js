@@ -2,6 +2,7 @@
 const compileUtils = {
   // 获取data中exp表达式的内容，例：exp: 'person.msg'
   getVal(exp, data) {
+    // person.name->[person,name]->data[person][name]
     // 使用.分割表达式，使用reduce函数的累加功能获取表达式的值
     return exp.split('.').reduce((prevData, curValue) => {
       return prevData[curValue]
